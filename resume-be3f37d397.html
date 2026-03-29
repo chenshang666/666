@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="大阿的个人简历网站 - 工程管理专业，求职岗位：工程监理师、工程管理。拥有管理学学士学位，具备项目管理、营销经验和造价员证书。">
+    <meta name="keywords" content="大阿, 个人简历, 工程管理, 工程监理师, 项目管理, 北京求职, 建筑工程">
+    <meta name="author" content="大阿">
+    <meta name="robots" content="index, follow">
+    
+    <title>大阿 - 个人简历 | 工程管理专业 | 工程监理师求职</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👤</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #e8e8e8;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #1e2a4a 0%, #162035 100%);
+            border-radius: 16px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            border-bottom: 3px solid #00d4ff;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 150, 255, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.4em;
+            color: #00d4ff;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .header .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.95em;
+        }
+
+        .header .contact-item {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .header .contact-item:hover {
+            background: rgba(0, 212, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+        }
+
+        .content {
+            padding: 45px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #00d4ff;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, #00d4ff 0%, transparent 100%);
+        }
+
+        .section-title::after {
+            content: '';
+            margin-left: 15px;
+            width: 8px;
+            height: 8px;
+            background: #00d4ff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            border-left: 4px solid #00d4ff;
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: rgba(0, 0, 0, 0.4);
+            transform: translateX(5px);
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #888;
+            margin-right: 15px;
+            min-width: 100px;
+        }
+
+        .info-value {
+            color: #e0e0e0;
+            font-weight: 500;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 30px;
+            border-left: 2px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: #0a0a0a;
+            border: 3px solid #00d4ff;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
+
+        .timeline-date {
+            color: #00d4ff;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .timeline-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .timeline-content {
+            color: #a0a0a0;
+            line-height: 1.9;
+        }
+
+        .timeline-highlight {
+            color: #00d4ff;
+            font-weight: 500;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+        }
+
+        .skill-name {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .skill-level {
+            font-size: 0.95em;
+            color: #00d4ff;
+            font-weight: 500;
+        }
+
+        .job-intent {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 150, 255, 0.05) 100%);
+            padding: 35px;
+            border-radius: 16px;
+            margin-top: 25px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .job-intent h3 {
+            font-size: 1.6em;
+            margin-bottom: 25px;
+            color: #00d4ff;
+            display: flex;
+            align-items: center;
+        }
+
+        .intent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .intent-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 3px solid #00d4ff;
+            transition: all 0.3s ease;
+        }
+
+        .intent-item:hover {
+            background: rgba(0, 0, 0, 0.4);
+            transform: translateX(5px);
+        }
+
+        .intent-label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .intent-value {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .self-intro {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 16px;
+            line-height: 2;
+            color: #c0c0c0;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .self-intro p {
+            margin-bottom: 20px;
+        }
+
+        .self-intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 35px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #16213e 100%);
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 25px;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 30px 25px;
+            }
+            
+            .section-title {
+                font-size: 1.6em;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00d4ff;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00a8cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>大阿</h1>
+            <div class="subtitle">工程管理专业 | 工程监理师</div>
+            <div class="contact-info">
+                <div class="contact-item">📞 111111111</div>
+                <div class="contact-item">📍 北京市</div>
+                <div class="contact-item">🎓 本科学历</div>
+                <div class="contact-item">⭐ 共青团员</div>
+            </div>
+        </header>
+
+        <div class="content">
+            <section class="section">
+                <h2 class="section-title">基本信息</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">性别：</span>
+                        <span class="info-value">男</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">出生日期：</span>
+                        <span class="info-value">2000年1月1日</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">民族：</span>
+                        <span class="info-value">汉</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">籍贯：</span>
+                        <span class="info-value">中国</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">目前所在地：</span>
+                        <span class="info-value">中国</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">政治面貌：</span>
+                        <span class="info-value">共青团员</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">教育背景</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">20xx年9月 - 20xx年7月</div>
+                    <div class="timeline-title">北方工业大学 | 管理学学士</div>
+                    <div class="timeline-content">
+                        <p>主修经济管理系工程管理专业，熟练掌握建筑工程及项目管理方面专业知识。</p>
+                        <p style="margin-top: 12px;">专业课程：土建、财会、管理、营销、项目控制及房地产等</p>
+                        <p style="margin-top: 12px;" class="timeline-highlight">荣誉：优秀干部</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">20xx年9月 - 20xx年7月</div>
+                    <div class="timeline-title">北京第十九中学</div>
+                    <div class="timeline-content">
+                        <p class="timeline-highlight">荣誉：三好学生、国家二级运动员（垒球）</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">工作经历</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">20xx年10月 - 20xx年10月</div>
+                    <div class="timeline-title">诺基亚公司 | 兼职销售</div>
+                    <div class="timeline-content">
+                        <p>负责产品销售工作，积累了丰富的基层营销经验。</p>
+                        <p style="margin-top: 12px;" class="timeline-highlight">成就：获得领导好评及奖金</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">20xx年8月 - 20xx年9月</div>
+                    <div class="timeline-title">河北华都建筑公司 | 工程监理实习</div>
+                    <div class="timeline-content">
+                        <p>参与工程监理相关工作，将专业知识与实践相结合。</p>
+                        <p style="margin-top: 12px;">职责：协助工程项目的质量监督和进度管理</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">专业技能</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-name">英语水平</div>
+                        <div class="skill-level">CET-4</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">计算机能力</div>
+                        <div class="skill-level">优秀</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">普通话</div>
+                        <div class="skill-level">优秀</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">造价员证书</div>
+                        <div class="skill-level">已获得</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">项目管理</div>
+                        <div class="skill-level">熟练掌握</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">营销能力</div>
+                        <div class="skill-level">丰富经验</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">求职意向</h2>
+                <div class="job-intent">
+                    <h3>🎯 职业规划</h3>
+                    <div class="intent-grid">
+                        <div class="intent-item">
+                            <div class="intent-label">求职类型</div>
+                            <div class="intent-value">全职/兼职</div>
+                        </div>
+                        <div class="intent-item">
+                            <div class="intent-label">期望岗位</div>
+                            <div class="intent-value">工程监理师</div>
+                        </div>
+                        <div class="intent-item">
+                            <div class="intent-label">备选岗位</div>
+                            <div class="intent-value">工程管理</div>
+                        </div>
+                        <div class="intent-item">
+                            <div class="intent-label">期望地点</div>
+                            <div class="intent-value">北京市</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">个人自传</h2>
+                <div class="self-intro">
+                    <p>本人性格开朗活泼，富有朝气，有亲和力。作为国家垒球二级运动员，具备健康的体魄及坚持不懈的体育精神。</p>
+                    
+                    <p>在能力方面，我善于与人沟通，具备良好的语言表达能力和应变能力，这些社交能力在工作中至关重要。我对工作认真负责，态度诚恳，多次获得优秀干部等荣誉。</p>
+                    
+                    <p>创新意识和开创思维是我的特点，配合狮子座与生俱来的组织能力和领导才能，我曾开创班级班报及组织的活动多次受到同学好评。</p>
+                    
+                    <p>相信我对工作的不懈努力和执着精神将是我闯出自己事业的关键。我希望找到适合自己的工作，并在此领域不断学习提高自己的专业知识，为自己的目标而努力。</p>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>© 2026 大阿 | 个人简历网站</p>
+            <p style="margin-top: 8px;">联系方式：111111111 | 工作地点：北京市</p>
+        </footer>
+    </div>
+</body>
+</html>
